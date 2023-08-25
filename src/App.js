@@ -1,9 +1,10 @@
 import './App.css';
+import './gridta.css'
 import logo from "./assets/images/Logo.svg"
 import backButtonBlk from "./assets/images/Back-blk.svg"
 import backButtonGrn from "./assets/images/Back-grn.svg"
 import forwardButtonGrn from "./assets/images/Forward-grn.svg"
-import tablePhoto from "./assets/images/restaurant.jpg"
+import tablePhoto from "./assets/images/Table photo.jpg"
 import calendar from "./assets/images/calendar-placeholder.png"
 import user from "./assets/images/User.svg"
 import clock from "./assets/images/clock.svg"
@@ -12,45 +13,55 @@ import happyChef from "./assets/images/happy-chef.jpg"
 
 function ReservationDetails () {
   return (
-    <>
-      <header>
-        <img src={logo} alt="Little Lemon Logo" />
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/menu">Menu</a>
-            </li>
-            <li>
-              <a href="/reservations">Reservations</a>
-            </li>
-            <li>
-              <a href="/order">Order Online</a>
-            </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <div class="wrapper">
+      <div class="container">
+        <div class="header">
+          <header>
+            <img className="logo" src={logo} alt="Little Lemon Logo" />
+          </header>
+          <nav>
+            <ul>
+              <li>
+                <a href="/">Home</a>
+              </li>
+              <li>
+                <a href="/about">About</a>
+              </li>
+              <li>
+                <a href="/menu">Menu</a>
+              </li>
+              <li>
+                <a href="/reservations">Reservations</a>
+              </li>
+              <li>
+                <a href="/order">Order Online</a>
+              </li>
+              <li>
+                <a href="/login">Login</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
       <main>
         <section id="hero">
-          <div id='reserve-heading'>
-            <nav>
-              <a href="/">
-                <img src={backButtonBlk} alt="Back button" />
-              </a>
-            </nav>
-            <h1>Reserve Table</h1>
-            <h3>Choose the date, number of diners, and then select from an available time</h3>
-          </div>
-          <div>
-            <img src={tablePhoto} alt="Little Lemon restaurant dining area" />
+          <div class="container">
+            <div id="hero-container">
+              <div id='reserve-heading'>
+                <div class="hero-nav">
+                  <nav>
+                    <a href="/">
+                      <img src={backButtonBlk} alt="Back button" />
+                    </a>
+                  </nav>
+                </div>
+                <div class="hero-heading">
+                  <h1>Reserve Table</h1>
+                  <h3>Choose the date, number of diners, and then select from an available time</h3>
+                </div>
+              </div>
+              <img className="heroImage" src={tablePhoto} alt="Little Lemon restaurant dining area" />
+            </div>
           </div>
         </section>
         <section id="reservation-details">
@@ -117,7 +128,7 @@ function ReservationDetails () {
           </ul>
         </nav>
       </footer>
-    </>
+    </div>
   )
 }
 
@@ -126,29 +137,29 @@ function ReservationFinalize() {
     <>
       <header>
         <img src={logo} alt="Little Lemon Logo" />
-        <nav>
-          <ul>
-            <li>
-              <a href="/">Home</a>
-            </li>
-            <li>
-              <a href="/about">About</a>
-            </li>
-            <li>
-              <a href="/menu">Menu</a>
-            </li>
-            <li>
-              <a href="/reservations">Reservations</a>
-            </li>
-            <li>
-              <a href="/order">Order Online</a>
-            </li>
-            <li>
-              <a href="/login">Login</a>
-            </li>
-          </ul>
-        </nav>
       </header>
+      <nav>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/about">About</a>
+          </li>
+          <li>
+            <a href="/menu">Menu</a>
+          </li>
+          <li>
+            <a href="/reservations">Reservations</a>
+          </li>
+          <li>
+            <a href="/order">Order Online</a>
+          </li>
+          <li>
+            <a href="/login">Login</a>
+          </li>
+        </ul>
+      </nav>
       <main>
         <section id="hero">
           <div id='reserve-heading'>
@@ -252,8 +263,8 @@ function ReservationFinalize() {
 function App() {
   return (
     <>
-      {/* <ReservationDetails /> */}
-      <ReservationFinalize />
+      <ReservationDetails />
+      {/* <ReservationFinalize /> */}
     </>
   );
 }
