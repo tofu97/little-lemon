@@ -64,39 +64,53 @@ function ReservationDetails () {
             </div>
           </div>
         </section>
-        <section id="reservation-details">
-          <div id='calendar'>
-            <nav id='calendar-nav'>
-              <button id='previous-month'>
-                <img src={backButtonGrn} alt="previous month" />
-              </button>
-              <h3>August 2023</h3>
-              <button id='next-month'>
-                <img src={forwardButtonGrn} alt="next month" />
-              </button>
-            </nav>
-            <img src={calendar} alt="calendar placeholder" />
-          </div>
-          <div id="details">
-            <div className='Field'>
-              <label>
-                <img src={user} alt="user" />Number of Diners
-              </label>
-              <input type='number' />
-            </div> 
-            <div className='Field'>
-              <label>
-                <img src={clock} alt="clock" />Time
-              </label>
-              <select value="1930">
-                <option value="1930">7:30 PM</option>
-                <option value="1945">7:45 PM</option>
-                <option value="2000">8:00 PM</option>
-              </select>
-            </div> 
-          </div>
-          <button>Reserve</button>
-        </section>
+        <div className="container">
+          <section id="reservation-details">
+            <div id="reservation-details-month">
+              <nav id='calendar-nav'>
+                <button id='previous-month'>
+                  <img src={backButtonGrn} alt="previous month" />
+                </button>
+                <h3>August 2023</h3>
+                <button id='next-month'>
+                  <img src={forwardButtonGrn} alt="next month" />
+                </button>
+              </nav>
+            </div>
+            <div id="reservation-details-inner">
+              <div id='calendar'>
+                <img src={calendar} alt="calendar placeholder" />
+              </div>
+              <div className="details">
+                <div className='field field-flex'>
+                  <label>
+                    <img src={user} alt="user" />
+                    Number of Diners
+                  </label>
+                  <div id="diners-number-picker">
+                    <button class="number-btn">-</button>
+                      <input type='number' defaultValue={2} min={1} max={20} />
+                    <button class="number-btn">+</button>
+                  </div>
+                </div> 
+                <div className='field'>
+                  <label>
+                    <img src={clock} alt="clock" />
+                    Time
+                  </label>
+                  <select value="1930">
+                    <option value="1930">7:30 PM</option>
+                    <option value="1945">7:45 PM</option>
+                    <option value="2000">8:00 PM</option>
+                  </select>
+                </div>
+                <div className='submit-btn-container'>
+                  <button className='submit-btn'>Reserve</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
       </main>
       <footer>
         <img src={logo} alt="Little lemon logo" />
