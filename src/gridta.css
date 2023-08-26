@@ -225,3 +225,65 @@ footer a {
     text-decoration: none;
     color: #333;
 }
+
+.reservation-contact-container {
+    margin-top: 3rem;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    max-width: 1080px;
+    padding-top: 20px;
+    justify-content: space-between;
+}
+
+.reservation-contact-container form {
+    width: 100%;
+    margin-left: 5rem;
+}
+
+.reservation-contact-container fieldset {
+    border: none;
+}
+
+.reservation-contact-container input {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 16px;
+    border: 1px solid #333;
+    padding-left: 16px;
+    box-sizing: border-box;
+    font-size: 18px;
+}
+
+.reservation-details-field img {
+    display: inline;
+    margin-right: 1rem;
+}
+
+.reservation-details-field h3 {
+    display: inline;
+}
+
+.reservation-details-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+#reservation-details-fields > img {
+    border-radius: 16px;
+}
+
+#credit-card-details {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+#credit-card-details .field:first-child {
+    margin-right: 10px;
+}
+
+.reservation-contact-container .submit-btn-container {
+    display: flex;
+    justify-content: space-between;
+}
