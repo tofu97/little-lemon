@@ -5,7 +5,7 @@
 
 .wrapper {
     display: grid;
-    grid-template-rows: 0fr 12fr 4fr;
+    grid-template-rows: 1fr 16fr 3fr;
 }
 
 .header ul {
@@ -178,8 +178,8 @@ input[type="number"] {
     font-size: 20px;
     border-radius: 16px;
     border: none;
-    padding-right: 1rem;
-    padding-left: 1rem;
+    padding-left: 16px;
+    border-right: 16px solid transparent
 }
 
 .field {
@@ -193,4 +193,35 @@ input[type="number"] {
 
 .field label img {
     margin-right: 0.5rem;
+}
+
+.footer-container {
+    background-color: #EDEFEE;
+    padding: 40px 70px 10px 70px;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr;
+}
+
+footer {
+    line-height: 130%;
+}
+
+footer h3 {
+    margin-bottom: 0.5rem;
+}
+
+footer img {
+    width: 50px;
+}
+
+footer ul {
+    list-style: none;
+}
+
+footer a {
+    text-decoration: none;
+    color: #333;
 }
