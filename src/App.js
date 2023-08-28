@@ -49,15 +49,31 @@ function ReservationDetails() {
           <div className="container">
             <div className="content">
               <div className="reservation-header">
-                <div className="hero-header">
-                  <h1>Reserve Table</h1>
-                  <h3>Choose the date, number of diners, and then select from an available time</h3>
-                </div>
+                <h1>Reserve Table</h1>
+                <h3>Choose the date, number of diners, and then select from an available time</h3>
                 <img className="heroImage" src={tablePhoto} alt="Little Lemon restaurant dining area" />
               </div>
             </div>
           </div>
         </section>
+        {/* <section className="reservation-details">
+          <div className="container">
+            <div className="content">
+              <div id="reservation-details-month">
+                <nav id='calendar-nav'>
+                  <button id='previous-month'>
+                    <img src={backButtonGrn} alt="previous month" />
+                  </button>
+                  <h3>August 2023</h3>
+                  <button id='next-month'>
+                    <img src={forwardButtonGrn} alt="next month" />
+                  </button>
+                </nav>
+              </div>
+            </div>
+          </div>
+
+        </section> */}
       </main>
     </>
   )
