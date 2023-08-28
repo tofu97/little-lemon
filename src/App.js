@@ -1,5 +1,5 @@
 import './App.css';
-import './gridta.css'
+import './gridta2.css'
 import logo from "./assets/images/Logo.svg"
 import backButtonBlk from "./assets/images/Back-blk.svg"
 import backButtonGrn from "./assets/images/Back-grn.svg"
@@ -12,7 +12,58 @@ import dish from "./assets/images/Dish.svg"
 import happyChef from "./assets/images/happy-chef.jpg"
 import lemon from "./assets/images/lemon.svg"
 
-function ReservationDetails () {
+function ReservationDetails() {
+  return (
+    <>
+      <div className="container">
+        <header className="content">
+          <div className="header">
+            <img className="logo" src={logo} alt="Little Lemon Logo" />
+            <nav>
+              <ul>
+                <li>
+                  <a href="/">Home</a>
+                </li>
+                <li>
+                  <a href="/about">About</a>
+                </li>
+                <li>
+                  <a href="/menu">Menu</a>
+                </li>
+                <li>
+                  <a href="/reservations">Reservations</a>
+                </li>
+                <li>
+                  <a href="/order">Order Online</a>
+                </li>
+                <li>
+                  <a href="/login">Login</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
+      <main>
+        <section className="hero">
+          <div className="container">
+            <div className="content">
+              <div className="reservation-header">
+                <div className="hero-header">
+                  <h1>Reserve Table</h1>
+                  <h3>Choose the date, number of diners, and then select from an available time</h3>
+                </div>
+                <img className="heroImage" src={tablePhoto} alt="Little Lemon restaurant dining area" />
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
+  )
+}
+
+function ReservationDetailsOld () {
   return (
     <div class="wrapper">
       <div class="container">
