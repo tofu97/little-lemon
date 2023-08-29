@@ -156,11 +156,89 @@ function ReservationDetails() {
                   </select>
                 </div>
               </div>
+              <div id="reservation-hud">
+                <div className="reservation-hud-item">
+                  <img src={dish} alt="dish" />
+                  <h2>August 23, 2023</h2>
+                </div>
+                <div className="reservation-hud-item">
+                  <img src={clock} alt="clock" />
+                  <h2>7:30 PM</h2>
+                </div>
+                <div className="reservation-hud-item">
+                  <img src={user} alt="diner" />
+                  <h2>4 Diners</h2>
+                </div>
+              </div>
+              <div id="reservation-contact-info">
+                <p>Enter customer contact information, and credit card number to confirm reservation.</p>
+              </div>
+              <form id="contact-form">
+                <fieldset>
+                  <div className="field">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" name="firstName" />
+                  </div>
+                  <div className="field">
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" name="lastName" />
+                  </div>
+                  <div className="field">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" />
+                  </div>
+                  <div id="credit-card-details">
+                    <div className="field">
+                      <label for="creditCard">Credit Card Number</label>
+                      <input type="text" id="creditCard" name="creditCard" />
+                    </div>
+                    <div className="field">
+                      <label for="creditCardCvv">CVV</label>
+                      <input type="text" id="creditCardCvv" name="creditCardCvv" />
+                    </div>
+                  </div>
+                  <div className='submit-btn-container'>
+                    <span></span>
+                    <button className='submit-btn'>Reserve</button>
+                  </div>
+                </fieldset>
+              </form>
             </div>
           </div>
-
         </section>
       </main>
+      <div className="footer-container">
+        <footer>
+          <img src={lemon} alt="Little lemon logo" />
+          <nav>
+            <h3>Doormat Navigation</h3>
+            <ul>
+              <li><a href="/home">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/menu">Menu</a></li>
+              <li><a href="/reservations">Reservations</a></li>
+              <li><a href="/order">Order Online</a></li>
+              <li><a href="/login">Login</a></li>
+            </ul>
+          </nav>
+          <nav>
+            <h3>Contact</h3>
+            <ul>
+              <li><a href="/address">Address</a></li>
+              <li><a href="/phone">Phone number</a></li>
+              <li><a href="/email">Email</a></li>
+            </ul>
+          </nav>
+          <nav>
+            <h3>Social media links</h3>
+            <ul>
+              <li><a href="/address">Address</a></li>
+              <li><a href="/phone">Phone number</a></li>
+              <li><a href="/email">Email</a></li>
+            </ul>
+          </nav>
+        </footer>
+      </div>
     </>
   )
 }
