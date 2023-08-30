@@ -1,15 +1,14 @@
 import './gridta.css'
 import logo from "./assets/images/Logo.svg"
-import backButtonBlk from "./assets/images/Back-blk.svg"
 import backButtonGrn from "./assets/images/Back-grn.svg"
 import forwardButtonGrn from "./assets/images/Forward-grn.svg"
 import tablePhoto from "./assets/images/Table photo.jpg"
-import calendar from "./assets/images/calendar-placeholder.png"
 import user from "./assets/images/User.svg"
 import clock from "./assets/images/clock.svg"
 import dish from "./assets/images/Dish.svg"
-import happyChef from "./assets/images/happy-chef.jpg"
 import lemon from "./assets/images/lemon.svg"
+import home from "./assets/images/home.svg"
+import hamburger from "./assets/images/hamburger.svg"
 
 function ReservationDetails() {
   return (
@@ -17,6 +16,9 @@ function ReservationDetails() {
       <div className="container">
         <header className="content">
           <div className="header">
+            <span className="home-btn">
+              <img src={home} alt="home" />
+            </span>
             <img className="logo" src={logo} alt="Little Lemon Logo" />
             <nav>
               <ul>
@@ -40,6 +42,9 @@ function ReservationDetails() {
                 </li>
               </ul>
             </nav>
+            <span className="hamburger">
+              <img src={hamburger} alt="hamburger menu" />
+            </span>
           </div>
         </header>
       </div>
