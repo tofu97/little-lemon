@@ -101,6 +101,10 @@ header a {
     .header .nav-bar .hamburger img.hide {
         display: none;
     }
+    
+    .header .nav-bar .collapse {
+        display: none;
+    }
 
     .header .nav-bar .close {
         position: fixed;
@@ -109,9 +113,6 @@ header a {
         transition: 0.5s;
     }
 
-    .header .nav-bar .collapse {
-        display: none;
-    }
 
     .header .nav-bar ul {
         position: fixed;
