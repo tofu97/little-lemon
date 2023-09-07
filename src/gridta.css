@@ -48,6 +48,19 @@ header a {
     color: #F4CE14;
 }
 
+.reservation-header h2 {
+    margin-top: 0.5rem;
+    font-family: Markazi;
+    font-size: 20pt;
+    color: #EDEFEE;
+}
+
+.reservation-header p {
+    margin-top: 0.5rem;
+    font-size: 14pt;
+    color: #EDEFEE;
+}
+
 .reservation-header h3 {
     margin-top: 10px;
     font-size: 14pt;
@@ -187,6 +200,16 @@ header a {
     .hero-header {
         max-width: 500px;
     }
+    
+    .hero-header-hero .hero-reserve-button {
+       grid-column: 1; 
+       grid-row: 6/ span 2;
+       width: 100%;
+    }
+
+    .hero-header-hero p {
+        padding-right: 0;
+    }
 
     #reservation-details {
         margin-left: auto;
@@ -269,8 +292,12 @@ header a {
         grid-row: 18/ span 8;
         margin-top: 40px;
     }
-    
+
     .hero {
+        background-color: #495E57;
+    }    
+
+    .reservation-hero {
         background: linear-gradient(180deg, #495E57 80%, white 20%);
     }
 
@@ -355,6 +382,11 @@ header a {
         max-width: 500px;
     }
 
+    .hero-header-hero .hero-reserve-button {
+       grid-column: 1; 
+       grid-row: 5/ span 1;
+    }
+
     #reservation-details {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
@@ -437,8 +469,13 @@ header a {
     }
     
     .hero {
+        background: linear-gradient(180deg, #495E57 90%, white 10%);
+    }    
+
+    .reservation-hero {
         background: linear-gradient(180deg, #495E57 50%, white 50%);
     }
+
     footer {
         display: grid;
         grid-template-columns: 1fr 2fr 2fr 2fr;
