@@ -1,4 +1,3 @@
-
 const TestimonialCard = (props) => {
     const {
         score,

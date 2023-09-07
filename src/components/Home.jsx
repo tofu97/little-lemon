@@ -3,6 +3,7 @@ import Footer from './Footer'
 import Hero from './Hero'
 import Specials from './Specials'
 import Testimonials from './Testimonials'
+import Chicago from './Chicago'
 
 /**
  * TODO
@@ -20,6 +21,7 @@ const Home = () => {
         <Hero />
         <Specials />
         <Testimonials />
+        <Chicago />
       </main>
       <Footer />
     </>

@@ -26,7 +26,6 @@ const reviews = [
 ]
 
 const Testimonials = (props) => {
-    const score = 4
     return (
         <section className="testimonials">
           <div className="container">
