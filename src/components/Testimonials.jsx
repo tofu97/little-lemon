@@ -34,7 +34,7 @@ const Testimonials = (props) => {
                     <h1>Testimonials</h1>
                 </div>
                 <section className="testimonial-cards">
-                    {reviews.map((item) => <TestimonialCard testimonial={item} />)}
+                    {reviews.map((item, i) => <TestimonialCard key={i} testimonial={item} />)}
                 </section>
             </div>
           </div>

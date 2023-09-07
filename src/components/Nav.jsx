@@ -4,6 +4,7 @@ import home from "../assets/images/home.svg"
 import hamburger from "../assets/images/hamburger.svg"
 import close from "../assets/images/close.svg"
 import whiteHamburger from "../assets/images/hamburger_white.svg"
+import { Link } from "react-router-dom"
 
 const Nav = (props) => {
     return (
@@ -15,22 +16,22 @@ const Nav = (props) => {
             <div className="nav-bar">
             <ul className="nav-bar-item collapse">
                 <li>
-                <a href="/">Home</a>
+                    <Link to="/" className="nav-item">Home</Link>
                 </li>
                 <li>
-                <a href="/about">About</a>
+                    <Link to="/" className="nav-item">About</Link>
                 </li>
                 <li>
-                <a href="/menu">Menu</a>
+                    <Link to="/" className="nav-item">Menu</Link>
                 </li>
                 <li>
-                <a href="/reservations">Reservations</a>
+                    <Link to="/reservations" className="nav-item">Reservations</Link>
                 </li>
                 <li>
-                <a href="/order">Order Online</a>
+                    <Link to="/" className="nav-item">Order online</Link>
                 </li>
                 <li>
-                <a href="/login">Login</a>
+                    <Link to="/" className="nav-item">Login</Link>
                 </li>
             </ul>
             <span className="hamburger hamburger-menu nav-bar-item">
