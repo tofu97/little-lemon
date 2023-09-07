@@ -1,5 +1,4 @@
 import React from "react";
-import tablePhoto from "../assets/images/Table photo.jpg"
 import servingFood from "../assets/images/serving-food.png"
 
 const Hero = (props) => {

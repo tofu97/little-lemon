@@ -1,6 +1,7 @@
 import Header from './Header'
 import Footer from './Footer'
 import Hero from './Hero'
+import Specials from './Specials'
 
 /**
  * TODO
@@ -16,6 +17,7 @@ function Home() {
       <Header />
       <main>
         <Hero />
+        <Specials />
       </main>
       <Footer />
     </>
