@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import backButtonGrn from "../assets/images/Back-grn.svg"
 import forwardButtonGrn from "../assets/images/Forward-grn.svg"
 import user from "../assets/images/User.svg"
@@ -6,10 +6,42 @@ import clock from "../assets/images/clock.svg"
 import dish from "../assets/images/Dish.svg"
 
 const ReservationDetails = (props) => {
+    const [date, setDate] = useState("")
+    const [diners, setDiners] = useState(1)
+    const [time, setTime] = useState("")
+    const [occasion, setOccasion] = useState("")
+    const [availableTimes, setAvailableTimes] = useState([
+      "17:00",
+      "19:00",
+      "20:00",
+      "21:00",
+      "22:00",
+    ])
+
+    const onChangeDate = (e) => {
+        console.log(e.target.value)
+        setDate(e.target.value)
+    }
+
+    const onChangeDiners = (e) => {
+        console.log(e.target.value)
+        setDiners(e.target.value)
+    }
+    
+    const onChangeTime = (e) => {
+        console.log(e.target.value)
+        setTime(e.target.value)
+    }
+    
+    const onChangeOccasion = (e) => {
+        console.log(e.target.value)
+        setOccasion(e.target.value)
+    }
+
     return (
         <section className="container">
           <div className="content">
-            <div id="reservation-details">
+            <form id="reservation-details">
               <div className="calender-nav">
                 <nav>
                   <button>
@@ -81,29 +113,68 @@ const ReservationDetails = (props) => {
                   </tr>
                 </tbody>
               </table>
+              <div id="date-input">
+                <div className="field">
+                  <label htmlFor="res-date">
+                    <img src={clock} alt="date" />
+                    Date
+                  </label>
+                  <input type="date" id="res-date" onChange={onChangeDate} />
+                </div>
+              </div>
               <div id="diners-input">
                 <div className='field field-flex'>
-                  <label>
+                  <label htmlFor="guests">
                     <img src={user} alt="user" />
                     Number of Diners
                   </label>
                   <div id="diners-number-picker">
-                    <button class="number-btn">-</button>
-                      <input type='number' defaultValue={2} min={1} max={20} />
-                    <button class="number-btn">+</button>
+                    <button className="number-btn">-</button>
+                      <input 
+                        type='number' 
+                        defaultValue={diners} 
+                        min={1} 
+                        max={10} 
+                        id="guests" 
+                        onChange={onChangeDiners}
+                      />
+                    <button className="number-btn">+</button>
                   </div>
                 </div> 
               </div>
               <div id="time-input">
                 <div className='field'>
-                  <label>
+                  <label htmlFor="res-time">
                     <img src={clock} alt="clock" />
                     Time
                   </label>
-                  <select value="1930">
-                    <option value="1930">7:30 PM</option>
-                    <option value="1945">7:45 PM</option>
-                    <option value="2000">8:00 PM</option>
+                  <select 
+                    value={time} 
+                    id="res-time"
+                    onChange={onChangeTime}
+                  >
+                    {availableTimes.map((time) => {
+                      return (
+                        <option key={time}>{time}</option>
+                      )
+                    })}
+                  </select>
+                </div>
+              </div>
+              <div id="occasion-input">
+                <div className="field">
+                  <label htmlFor="occasion">
+                    <img src={clock} alt="clock" />
+                    Occasion
+                  </label>
+                  <select 
+                    id="occasion" 
+                    onChange={onChangeOccasion}
+                    value={occasion}
+                  >
+                    <option></option>
+                    <option>Birthday</option>
+                    <option>Anniversary</option>
                   </select>
                 </div>
               </div>
@@ -124,27 +195,27 @@ const ReservationDetails = (props) => {
               <div id="reservation-contact-info">
                 <p>Enter customer contact information, and credit card number to confirm reservation.</p>
               </div>
-              <form id="contact-form">
+              <div id="contact-form">
                 <fieldset>
                   <div className="field">
-                    <label for="firstName">First name</label>
+                    <label htmlFor="firstName">First name</label>
                     <input type="text" id="firstName" name="firstName" />
                   </div>
                   <div className="field">
-                    <label for="lastName">Last name</label>
+                    <label htmlFor="lastName">Last name</label>
                     <input type="text" id="lastName" name="lastName" />
                   </div>
                   <div className="field">
-                    <label for="email">Email Address</label>
+                    <label htmlFor="email">Email Address</label>
                     <input type="email" id="email" name="email" />
                   </div>
                   <div id="credit-card-details">
                     <div className="field">
-                      <label for="creditCard">Credit Card Number</label>
+                      <label htmlFor="creditCard">Credit Card Number</label>
                       <input type="text" id="creditCard" name="creditCard" />
                     </div>
                     <div className="field">
-                      <label for="creditCardCvv">CVV</label>
+                      <label htmlFor="creditCardCvv">CVV</label>
                       <input type="text" id="creditCardCvv" name="creditCardCvv" />
                     </div>
                   </div>
@@ -153,8 +224,8 @@ const ReservationDetails = (props) => {
                     <button className='submit-btn'>Reserve</button>
                   </div>
                 </fieldset>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </section>
     )

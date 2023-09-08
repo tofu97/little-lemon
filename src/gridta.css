@@ -25,6 +25,24 @@ header a {
     text-decoration: none;
 }
 
+#date-input {
+    /** 
+     * hide normal date input except for screen readers
+     * or if using tab to tab across form inputs
+     * copy-pasta: This is Visually hidden boostrap class implementation
+    */
+    position: absolute;
+	position: absolute !important;
+	width: 1px !important;
+	height: 1px !important;
+	padding: 0 !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	clip: rect(0,0,0,0) !important;
+	white-space: nowrap !important;
+	border: 0 !important;
+}
+
 .submit-btn {
     font-size: 18px;
     width: 200px;
@@ -210,8 +228,6 @@ article.testimonial-card .col-1 {
     .chicago-story {
         margin-bottom: 5rem;
     }
-
-
 
     article.testimonial-card {
         margin-bottom: 2rem;
@@ -656,8 +672,13 @@ article.testimonial-card .col-1 {
     }
 
     #time-input {
-        margin-top: 42px;
-        grid-row: 11/ span 4;
+        margin-top: 32px;
+        grid-row: 11/ span 2;
+    }
+
+    #occasion-input {
+        margin-top: 22px;
+        grid-row: 13/ span 2;
     }
     
     #contact-form {
