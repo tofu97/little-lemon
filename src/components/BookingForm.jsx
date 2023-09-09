@@ -9,17 +9,16 @@ const BookingForm = (props) => {
     const [diners, setDiners] = useState(1)
     const [time, setTime] = useState("")
     const [occasion, setOccasion] = useState("")
-    const [availableTimes, setAvailableTimes] = useState([
-      "17:00",
-      "19:00",
-      "20:00",
-      "21:00",
-      "22:00",
-    ])
+    const {
+        availableTimes,
+        dispatchAvailableTimes,
+    } = props.times
 
     const onChangeDate = (e) => {
         console.log(e.target.value)
-        setDate(e.target.value)
+        const newDate = e.target.value
+        setDate(newDate)
+        dispatchAvailableTimes({date: newDate})
     }
 
     const onChangeDiners = (e) => {
@@ -99,7 +98,7 @@ const BookingForm = (props) => {
                     >
                     {availableTimes.map((time) => {
                         return (
-                        <option key={time}>{time}</option>
+                            <option key={time}>{time}</option>
                         )
                     })}
                     </select>
