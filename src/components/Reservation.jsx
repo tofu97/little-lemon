@@ -7,7 +7,7 @@ function Reservation(props) {
     <>
       <main>
         <ReservationHero />
-        <ReservationDetails times={props.times} />
+        <ReservationDetails times={props.times} submitForm={props.submitForm} />
       </main>
       <Footer />
     </>

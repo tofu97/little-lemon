@@ -1,18 +1,14 @@
-export const initializeTimes = () => {
-    return [
-        "17:00",
-        "19:00",
-        "20:00",
-        "21:00",
-        "22:00",
-    ]
+import { fetchAPI } from "../api/api"
+
+export const initializeTimes = async (date = new Date()) => {
+    return await fetchAPI(date)
 }
 
 const updateTimes = (state, action) => {
-    // TODO: Use the action.date to get times for the date
+    if (action.type === "update_times") {
+        return action.times
+    }
     return state
 }
-
-
 
 export default updateTimes

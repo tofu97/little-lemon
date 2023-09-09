@@ -4,7 +4,7 @@ const ReservationDetails = (props) => {
     return (
         <section className="container">
           <div className="content">
-            <BookingForm times={props.times} />
+            <BookingForm times={props.times} submitForm={props.submitForm} />
           </div>
         </section>
     )

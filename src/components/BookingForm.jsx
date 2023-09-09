@@ -1,8 +1,9 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import user from "../assets/images/User.svg"
 import clock from "../assets/images/clock.svg"
 import dish from "../assets/images/Dish.svg"
 import Calendar from "./Calendar"
+import { initializeTimes } from "../reducers/updateTimes"
 
 const BookingForm = (props) => {
     const [date, setDate] = useState("")
@@ -13,12 +14,27 @@ const BookingForm = (props) => {
         availableTimes,
         dispatchAvailableTimes,
     } = props.times
+    const submitForm = props.submitForm
+
+    useEffect(() => {
+        const updateTimes = async () => {
+            try {
+                const times = await initializeTimes(new Date(date))
+                dispatchAvailableTimes({
+                    times,
+                    type: 'update_times',
+                })
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        updateTimes()
+    }, [date, dispatchAvailableTimes])
 
     const onChangeDate = (e) => {
         console.log(e.target.value)
         const newDate = e.target.value
         setDate(newDate)
-        dispatchAvailableTimes({date: newDate})
     }
 
     const onChangeDiners = (e) => {
@@ -42,8 +58,14 @@ const BookingForm = (props) => {
         setOccasion(e.target.value)
     }
 
+    const onSubmitForm = (e) => {
+        e.preventDefault()
+        const formData = new FormData(e.target)
+        submitForm(formData)
+    }
+
     return (
-        <form id="reservation-details">
+        <form id="reservation-details" onSubmit={onSubmitForm}>
             <Calendar />    
             <div id="date-input">
                 <div className="field">
@@ -55,7 +77,8 @@ const BookingForm = (props) => {
                         type="date" 
                         id="res-date" 
                         onChange={onChangeDate} 
-                        value={date} 
+                        value={date}
+                        name="date" 
                     />
                 </div>
             </div>
@@ -71,12 +94,13 @@ const BookingForm = (props) => {
                         onClick={(e) => adjustDiners(e, diners - 1)}
                     >-</button>
                         <input 
-                        type='number' 
-                        value={diners} 
-                        min={1} 
-                        max={10} 
-                        id="guests" 
-                        onChange={onChangeDiners}
+                            type='number' 
+                            value={diners} 
+                            min={1} 
+                            max={10} 
+                            id="guests" 
+                            onChange={onChangeDiners}
+                            name="diners"
                         />
                     <button 
                         className="number-btn"
@@ -88,13 +112,14 @@ const BookingForm = (props) => {
             <div id="time-input">
                 <div className='field'>
                     <label htmlFor="res-time">
-                    <img src={clock} alt="clock" />
-                    Time
+                        <img src={clock} alt="clock" />
+                        Time
                     </label>
                     <select 
-                    value={time} 
-                    id="res-time"
-                    onChange={onChangeTime}
+                        value={time} 
+                        id="res-time"
+                        onChange={onChangeTime}
+                        name="time"
                     >
                     {availableTimes.map((time) => {
                         return (
@@ -107,17 +132,18 @@ const BookingForm = (props) => {
             <div id="occasion-input">
                 <div className="field">
                     <label htmlFor="occasion">
-                    <img src={clock} alt="clock" />
-                    Occasion
+                        <img src={clock} alt="clock" />
+                        Occasion
                     </label>
                     <select 
-                    id="occasion" 
-                    onChange={onChangeOccasion}
-                    value={occasion}
+                        id="occasion" 
+                        onChange={onChangeOccasion}
+                        value={occasion}
+                        name="occasion"
                     >
-                    <option></option>
-                    <option>Birthday</option>
-                    <option>Anniversary</option>
+                        <option></option>
+                        <option>Birthday</option>
+                        <option>Anniversary</option>
                     </select>
                 </div>
             </div>
@@ -141,30 +167,30 @@ const BookingForm = (props) => {
             <div id="contact-form">
                 <fieldset>
                     <div className="field">
-                    <label htmlFor="firstName">First name</label>
-                    <input type="text" id="firstName" name="firstName" />
+                        <label htmlFor="firstName">First name</label>
+                        <input type="text" id="firstName" name="firstName" />
                     </div>
                     <div className="field">
-                    <label htmlFor="lastName">Last name</label>
-                    <input type="text" id="lastName" name="lastName" />
+                        <label htmlFor="lastName">Last name</label>
+                        <input type="text" id="lastName" name="lastName" />
                     </div>
                     <div className="field">
-                    <label htmlFor="email">Email Address</label>
-                    <input type="email" id="email" name="email" />
+                        <label htmlFor="email">Email Address</label>
+                        <input type="email" id="email" name="email" />
                     </div>
                     <div id="credit-card-details">
-                    <div className="field">
-                        <label htmlFor="creditCard">Credit Card Number</label>
-                        <input type="text" id="creditCard" name="creditCard" />
-                    </div>
-                    <div className="field">
-                        <label htmlFor="creditCardCvv">CVV</label>
-                        <input type="text" id="creditCardCvv" name="creditCardCvv" />
-                    </div>
+                        <div className="field">
+                            <label htmlFor="creditCard">Credit Card Number</label>
+                            <input type="text" id="creditCard" name="creditCard" />
+                        </div>
+                        <div className="field">
+                            <label htmlFor="creditCardCvv">CVV</label>
+                            <input type="text" id="creditCardCvv" name="creditCardCvv" />
+                        </div>
                     </div>
                     <div className='submit-btn-container'>
-                    <span></span>
-                    <button className='submit-btn'>Reserve</button>
+                        <span></span>
+                        <button className='submit-btn'>Reserve</button>
                     </div>
                 </fieldset>
             </div>
