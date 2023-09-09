@@ -28,6 +28,12 @@ const ReservationDetails = (props) => {
         setDiners(e.target.value)
     }
     
+    const adjustDiners = (e, numDiners) => {
+      e.preventDefault()
+      numDiners = Math.min(10, Math.max(1, numDiners))
+      setDiners(numDiners)
+    }
+    
     const onChangeTime = (e) => {
         console.log(e.target.value)
         setTime(e.target.value)
@@ -129,16 +135,22 @@ const ReservationDetails = (props) => {
                     Number of Diners
                   </label>
                   <div id="diners-number-picker">
-                    <button className="number-btn">-</button>
+                    <button 
+                      className="number-btn" 
+                      onClick={(e) => adjustDiners(e, diners - 1)}
+                    >-</button>
                       <input 
                         type='number' 
-                        defaultValue={diners} 
+                        value={diners} 
                         min={1} 
                         max={10} 
                         id="guests" 
                         onChange={onChangeDiners}
                       />
-                    <button className="number-btn">+</button>
+                    <button 
+                      className="number-btn"
+                      onClick={(e) => adjustDiners(e, diners + 1)}
+                    >+</button>
                   </div>
                 </div> 
               </div>
