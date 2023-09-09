@@ -207,6 +207,14 @@ article.testimonial-card .col-1 {
     font-size: 14pt;
 }
 
+td.selected {
+    background-color: #F4CE14;
+}
+
+td.ghost {
+    color:#fff;
+}
+
 @media (max-width: 820px) {
     main {
         height: 700vh;

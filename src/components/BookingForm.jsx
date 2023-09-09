@@ -6,7 +6,9 @@ import Calendar from "./Calendar"
 import { initializeTimes } from "../reducers/updateTimes"
 
 const BookingForm = (props) => {
-    const [date, setDate] = useState("")
+    const [date, setDate] = useState(
+        (new Date()).toISOString().substring(0, 10)
+    )
     const [diners, setDiners] = useState(1)
     const [time, setTime] = useState("")
     const [occasion, setOccasion] = useState("")
@@ -66,7 +68,7 @@ const BookingForm = (props) => {
 
     return (
         <form id="reservation-details" onSubmit={onSubmitForm}>
-            <Calendar />    
+            <Calendar date={date} setDate={setDate} />    
             <div id="date-input">
                 <div className="field">
                     <label htmlFor="res-date">
