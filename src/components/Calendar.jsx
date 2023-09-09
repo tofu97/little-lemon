@@ -1,10 +1,10 @@
 import backButtonGrn from "../assets/images/Back-grn.svg"
 import forwardButtonGrn from "../assets/images/Forward-grn.svg"
-import { months } from "../helpers/date"
+import { explodeDate, months } from "../helpers/date"
 
 const Calendar = ({date, setDate}) => {
-    let [year, monthIdx, day] = date.split("-").map(val => Number(val))
-    monthIdx--
+    let [year, monthNumber, day] = explodeDate(date)
+    let monthIdx = monthNumber - 1
     console.log("Date: ", year, monthIdx, day)
     const month = months[monthIdx]
     const dateObj = new Date(year, monthIdx, day)

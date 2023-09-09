@@ -4,14 +4,14 @@ import clock from "../assets/images/clock.svg"
 import dish from "../assets/images/Dish.svg"
 import Calendar from "./Calendar"
 import { initializeTimes } from "../reducers/updateTimes"
-import { dateHeader } from "../helpers/date"
+import { dateHeader, explodeDate } from "../helpers/date"
 
 const BookingForm = (props) => {
     const [date, setDate] = useState(
         (new Date()).toISOString().substring(0, 10)
     )
     const [diners, setDiners] = useState(1)
-    const [time, setTime] = useState("--:--")
+    const [time, setTime] = useState("No available times")
     const [occasion, setOccasion] = useState("")
     const {
         availableTimes,
@@ -22,7 +22,9 @@ const BookingForm = (props) => {
     useEffect(() => {
         const updateTimes = async () => {
             try {
-                const times = await initializeTimes(new Date(date))
+                const [year, monthNumber, day] = explodeDate(date)
+                const dateObj = new Date(year, monthNumber - 1, day)
+                const times = await initializeTimes(dateObj)
                 dispatchAvailableTimes({
                     times,
                     type: 'update_times',
@@ -32,7 +34,15 @@ const BookingForm = (props) => {
             }
         }
         updateTimes()
-    }, [date, dispatchAvailableTimes])
+    }, [date, dispatchAvailableTimes, time])
+
+    useEffect(() => {
+        if (availableTimes.lenght === 0) {
+            setTime("No available times")
+        } else if (!availableTimes.includes(time)) {
+            setTime(availableTimes[0])
+        }
+    }, [availableTimes, time])
 
     const onChangeDate = (e) => {
         console.log(e.target.value)
