@@ -4,13 +4,14 @@ import clock from "../assets/images/clock.svg"
 import dish from "../assets/images/Dish.svg"
 import Calendar from "./Calendar"
 import { initializeTimes } from "../reducers/updateTimes"
+import { dateHeader } from "../helpers/date"
 
 const BookingForm = (props) => {
     const [date, setDate] = useState(
         (new Date()).toISOString().substring(0, 10)
     )
     const [diners, setDiners] = useState(1)
-    const [time, setTime] = useState("")
+    const [time, setTime] = useState("--:--")
     const [occasion, setOccasion] = useState("")
     const {
         availableTimes,
@@ -152,15 +153,15 @@ const BookingForm = (props) => {
             <div id="reservation-hud">
                 <div className="reservation-hud-item">
                     <img src={dish} alt="dish" />
-                    <h2>August 23, 2023</h2>
+                    <h2>{dateHeader(date)}</h2>
                 </div>
                 <div className="reservation-hud-item">
                     <img src={clock} alt="clock" />
-                    <h2>7:30 PM</h2>
+                    <h2>{time}</h2>
                 </div>
                 <div className="reservation-hud-item">
                     <img src={user} alt="diner" />
-                    <h2>4 Diners</h2>
+                    <h2>{diners} Diners</h2>
                 </div>
             </div>
             <div id="reservation-contact-info">

@@ -1,20 +1,6 @@
 import backButtonGrn from "../assets/images/Back-grn.svg"
 import forwardButtonGrn from "../assets/images/Forward-grn.svg"
-
-const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-]
+import { months } from "../helpers/date"
 
 const Calendar = ({date, setDate}) => {
     let [year, monthIdx, day] = date.split("-").map(val => Number(val))
@@ -74,7 +60,7 @@ const Calendar = ({date, setDate}) => {
     }
 
     const selectDay = (day) => () => {
-        if (!day) {
+        if (day === "*") {
             return
         }
         const dateStr = [year, monthIdx + 1, day].map((v) => {
