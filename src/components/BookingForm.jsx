@@ -11,13 +11,22 @@ const BookingForm = (props) => {
         (new Date()).toISOString().substring(0, 10)
     )
     const [diners, setDiners] = useState(1)
-    const [time, setTime] = useState("No available times")
+    const [time, setTime] = useState("")
     const [occasion, setOccasion] = useState("")
     const {
         availableTimes,
         dispatchAvailableTimes,
     } = props.times
     const submitForm = props.submitForm
+
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [creditCard, setCreditCard] = useState("")
+    const [creditCardTouched, setCreditCardTouched] = useState(false)
+    const [cvv, setCvv] = useState("")
+    const [cvvTouched, setCvvTouched] = useState(false)
+    const [errors, setErrors] = useState(null)
 
     useEffect(() => {
         const updateTimes = async () => {
@@ -71,10 +80,64 @@ const BookingForm = (props) => {
         setOccasion(e.target.value)
     }
 
+    const onChangeCreditCard = (e) => {
+        e.preventDefault()
+        const newCreditCard = e.target.value
+        const newErrors = errors || {}
+        if (newCreditCard.length !== 16 || isNaN(newCreditCard)) {
+            newErrors.creditCard = "Please enter a valid 16 digit credit card number"
+            setErrors(newErrors)
+        } else {
+            delete newErrors.creditCard
+            setErrors(newErrors)
+        }
+        setCreditCard(newCreditCard)
+    }
+
+    const onChangeCvv = (e) => {
+        e.preventDefault()
+        const newCvv = e.target.value
+        const newErrors = errors || {}
+        if ((newCvv.length !== 3 && newCvv.length !== 4) || isNaN(newCvv)) {
+            newErrors.cvv = "Please enter a 3 to 4 digit CVV"
+            setErrors(newErrors)
+        } else {
+            delete newErrors.cvv
+            setErrors(newErrors)
+        }
+        setCvv(newCvv)
+    }
+
     const onSubmitForm = (e) => {
         e.preventDefault()
-        const formData = new FormData(e.target)
-        submitForm(formData)
+        const currErrors = {}
+        if (creditCard.length !== 16 || isNaN(creditCard)) {
+            currErrors.creditCard = "Please enter a valid 16 digit credit card number"
+        }
+        if ((cvv.length !== 3 && cvv.length !== 4) || isNaN(cvv)) {
+            currErrors.cvv = "Please enter a 3 to 4 digit CVV"
+        }
+        if (Object.keys(currErrors).length > 0) {
+            setErrors(currErrors)
+            return
+        } 
+        setErrors(null)
+        const formData = {
+            date,
+            time,
+            diners,
+            occasion,
+            firstName,
+            lastName,
+            email,
+            creditCard,
+            cvv,
+        }
+        console.log(formData)
+    }
+
+    const hasErrors = () => {
+        return errors && Object.keys(errors).length > 0
     }
 
     return (
@@ -167,7 +230,7 @@ const BookingForm = (props) => {
                 </div>
                 <div className="reservation-hud-item">
                     <img src={clock} alt="clock" />
-                    <h2>{time}</h2>
+                    <h2>{time || <span className="alert">No available times</span>}</h2>
                 </div>
                 <div className="reservation-hud-item">
                     <img src={user} alt="diner" />
@@ -181,29 +244,75 @@ const BookingForm = (props) => {
                 <fieldset>
                     <div className="field">
                         <label htmlFor="firstName">First name</label>
-                        <input type="text" id="firstName" name="firstName" />
+                        <input 
+                            type="text" 
+                            id="firstName" 
+                            name="firstName" 
+                            onChange={(e) => setFirstName(e.target.value)} 
+                            required 
+                        />
+                        <span className="errors"></span>
                     </div>
                     <div className="field">
                         <label htmlFor="lastName">Last name</label>
-                        <input type="text" id="lastName" name="lastName" />
+                        <input 
+                            type="text" 
+                            id="lastName" 
+                            name="lastName" 
+                            onChange={(e) => setLastName(e.target.value)}
+                            required 
+                        />
+                        <span className="errors"></span>
                     </div>
                     <div className="field">
                         <label htmlFor="email">Email Address</label>
-                        <input type="email" id="email" name="email" />
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            onChange={(e) => setEmail(e.target.value)}
+                            required 
+                        />
+                        <span className="errors"></span>
                     </div>
                     <div id="credit-card-details">
                         <div className="field">
                             <label htmlFor="creditCard">Credit Card Number</label>
-                            <input type="text" id="creditCard" name="creditCard" />
+                            <input 
+                                type="text" 
+                                id="creditCard" 
+                                name="creditCard" 
+                                onChange={onChangeCreditCard}
+                                required 
+                                onBlur={() => setCreditCardTouched(true)}
+                            />
+                            <span className="errors">
+                                {creditCardTouched && hasErrors() && (errors.creditCard || null)}
+                            </span>
+                            <span className="errors">
+                                {cvvTouched && hasErrors() && (errors.cvv || null)}
+                            </span>
                         </div>
                         <div className="field">
                             <label htmlFor="creditCardCvv">CVV</label>
-                            <input type="text" id="creditCardCvv" name="creditCardCvv" />
+                            <input 
+                                type="text" 
+                                id="creditCardCvv" 
+                                name="creditCardCvv" 
+                                onChange={onChangeCvv}
+                                required
+                                onBlur={() => setCvvTouched(true)}
+                            />
                         </div>
                     </div>
                     <div className='submit-btn-container'>
                         <span></span>
-                        <button className='submit-btn'>Reserve</button>
+                        <button 
+                            className='submit-btn'
+                            disabled={!time || hasErrors()}
+                        >
+                            Reserve
+                        </button>
                     </div>
                 </fieldset>
             </div>

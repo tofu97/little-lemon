@@ -215,6 +215,19 @@ td.ghost {
     color:#fff;
 }
 
+#contact-form span.errors {
+    display: block;
+    color: #FF7772;
+    font-weight: 900;
+    font-size: 14pt;
+    margin-top: 8px;
+}
+
+span.alert {
+    color: #FF7772;
+    font-weight: 900;
+}
+
 @media (max-width: 820px) {
     main {
         height: 700vh;
@@ -816,7 +829,8 @@ input[type="number"] {
 }
 
 .field {
-    margin-bottom: 1rem;
+    height: 68px;
+    margin-bottom: 2rem;
 }
 
 .field label {
@@ -845,6 +859,7 @@ input[type="number"] {
 }
 
 #contact-form .submit-btn-container {
+    margin-top: 3rem;
     display: flex;
     justify-content: space-between;
 }

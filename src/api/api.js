@@ -2,7 +2,7 @@ export const fetchAPI = async (date) => {
     const getTimes = () => {
         switch (date.getDay()) {
             case 0:
-                return ["12:11"]
+                return []
             case 1:
                 return ["12:12", "13:00"]
             case 2:
