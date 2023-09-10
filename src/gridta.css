@@ -898,3 +898,7 @@ footer a {
 #credit-card-details .field:first-child {
     margin-right: 10px;
 }
+
+#contact-form input.error {
+    border: 1px solid #FF7772;
+}

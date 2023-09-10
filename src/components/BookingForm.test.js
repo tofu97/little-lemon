@@ -21,10 +21,10 @@ test('All required form input fields have required attribute', () =>{
     const lastNameInput = screen.getByLabelText("Last name")
     expect(lastNameInput.getAttribute("required")).not.toEqual(null)
     
-    const emailInput = screen.getByLabelText("Email Address")
+    const emailInput = screen.getByLabelText("Email address")
     expect(emailInput.getAttribute("required")).not.toEqual(null)
 
-    const creditCardInput = screen.getByLabelText("Credit Card Number")
+    const creditCardInput = screen.getByLabelText("Credit card number")
     expect(creditCardInput.getAttribute("required")).not.toEqual(null)
     
     const cvvInput = screen.getByLabelText("CVV")
@@ -48,7 +48,7 @@ test('Invalid credit card errors are displayed and form submit is disabled', () 
     const dispatchAvailableTimes = () => {}
     render(<BookingForm times={{availableTimes, dispatchAvailableTimes}} />)
 
-    const creditCardInput = screen.getByLabelText("Credit Card Number")
+    const creditCardInput = screen.getByLabelText("Credit card number")
     fireEvent.change(creditCardInput, {target: {value: "123"}})
     fireEvent.blur(creditCardInput)
     const errorMessage = screen.getByText("Please enter a valid 16 digit credit card number")
@@ -75,7 +75,7 @@ test('Form submit is enabled when all fields are valid', () => {
     const dateInput = screen.getByLabelText("Date")
     expect(dateInput.value).toEqual(date)
 
-    const dinersInput = screen.getByLabelText("Number of Diners")
+    const dinersInput = screen.getByLabelText("Number of diners")
     expect(dinersInput.value).toEqual("1")
 
     const timeInput = screen.getByLabelText("Time")
@@ -90,10 +90,10 @@ test('Form submit is enabled when all fields are valid', () => {
     const lastName = screen.getByLabelText("Last name")
     fireEvent.change(lastName, {target: {value: "Smith"}})
     
-    const email = screen.getByLabelText("Email Address")
+    const email = screen.getByLabelText("Email address")
     fireEvent.change(email, {target: {value: "bob@example.com"}})
 
-    const creditCardInput = screen.getByLabelText("Credit Card Number")
+    const creditCardInput = screen.getByLabelText("Credit card number")
     fireEvent.change(creditCardInput, {target: {value: "1111222233334444"}})
     
     const cvvInput = screen.getByLabelText("CVV")
@@ -129,10 +129,10 @@ test('Form is submitted successfully with valid inputs', () => {
     const lastNameInput = screen.getByLabelText("Last name")
     fireEvent.change(lastNameInput, {target: {value: lastName}})
     
-    const emailInput = screen.getByLabelText("Email Address")
+    const emailInput = screen.getByLabelText("Email address")
     fireEvent.change(emailInput, {target: {value: email}})
 
-    const creditCardInput = screen.getByLabelText("Credit Card Number")
+    const creditCardInput = screen.getByLabelText("Credit card number")
     fireEvent.change(creditCardInput, {target: {value: creditCard}})
     
     const cvvInput = screen.getByLabelText("CVV")

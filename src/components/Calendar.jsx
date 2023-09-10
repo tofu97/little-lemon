@@ -74,11 +74,11 @@ const Calendar = ({date, setDate}) => {
         <>
             <div className="calender-nav">
                 <nav>
-                    <button onClick={onPreviousMonth}>
+                    <button onClick={onPreviousMonth} aria-label="next month">
                         <img src={backButtonGrn} alt="previous month" />
                     </button>
                     <h3>{month} {year}</h3>
-                    <button onClick={onNextMonth}>
+                    <button onClick={onNextMonth} aria-label="previous month">
                         <img src={forwardButtonGrn} alt="next month" />
                     </button>
                 </nav>
@@ -102,8 +102,8 @@ const Calendar = ({date, setDate}) => {
                                 {row.map(([isSelected, cell, ghost], j) => {
                                     return (
                                         isSelected 
-                                            ? <td key={`${i,j}`} className={`selected ${ghost}`} onClick={selectDay(cell)}>{cell}</td>
-                                            : <td key={`${i,j}`} className={ghost} onClick={selectDay(cell)}>{cell}</td>
+                                            ? <td key={`${i,j}`} aria-label="On click" className={`selected ${ghost}`} onClick={selectDay(cell)}>{cell}</td>
+                                            : <td key={`${i,j}`} aria-label="On click" className={ghost} onClick={selectDay(cell)}>{cell}</td>
                                     )     
                                 })}
                             </tr>

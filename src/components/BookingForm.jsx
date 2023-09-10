@@ -164,7 +164,7 @@ const BookingForm = (props) => {
                 <div className='field field-flex'>
                     <label htmlFor="guests">
                     <img src={user} alt="user" />
-                    Number of Diners
+                    Number of diners
                     </label>
                     <div id="diners-number-picker">
                     <button 
@@ -269,7 +269,7 @@ const BookingForm = (props) => {
                         <span className="errors"></span>
                     </div>
                     <div className="field">
-                        <label htmlFor="email">Email Address</label>
+                        <label htmlFor="email">Email address</label>
                         <input 
                             type="email" 
                             id="email" 
@@ -281,7 +281,7 @@ const BookingForm = (props) => {
                     </div>
                     <div id="credit-card-details">
                         <div className="field">
-                            <label htmlFor="creditCard">Credit Card Number</label>
+                            <label htmlFor="creditCard">Credit card number</label>
                             <input 
                                 type="text" 
                                 id="creditCard" 
@@ -289,6 +289,7 @@ const BookingForm = (props) => {
                                 onChange={onChangeCreditCard}
                                 required 
                                 onBlur={() => setCreditCardTouched(true)}
+                                className={creditCardTouched && hasErrors() && errors.creditCard && "error"}
                             />
                             <span className="errors">
                                 {creditCardTouched && hasErrors() && (errors.creditCard || null)}
@@ -306,6 +307,7 @@ const BookingForm = (props) => {
                                 onChange={onChangeCvv}
                                 required
                                 onBlur={() => setCvvTouched(true)}
+                                className={cvvTouched && hasErrors() && errors.cvv && "error"}
                             />
                         </div>
                     </div>
