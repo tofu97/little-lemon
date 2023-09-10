@@ -7,8 +7,9 @@ import { initializeTimes } from "../reducers/updateTimes"
 import { dateHeader, explodeDate } from "../helpers/date"
 
 const BookingForm = (props) => {
+    const effectiveDate = props.dateStr ? new Date(props.dateStr) : new Date()
     const [date, setDate] = useState(
-        (new Date()).toISOString().substring(0, 10)
+        effectiveDate.toISOString().substring(0, 10)
     )
     const [diners, setDiners] = useState(1)
     const [time, setTime] = useState("")
@@ -134,6 +135,7 @@ const BookingForm = (props) => {
             cvv,
         }
         console.log(formData)
+        submitForm(formData)
     }
 
     const hasErrors = () => {
@@ -307,7 +309,8 @@ const BookingForm = (props) => {
                     </div>
                     <div className='submit-btn-container'>
                         <span></span>
-                        <button 
+                        <button
+                            data-testid="reservation-submit-btn" 
                             className='submit-btn'
                             disabled={!time || hasErrors()}
                         >
