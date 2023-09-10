@@ -170,6 +170,7 @@ const BookingForm = (props) => {
                     <button 
                         className="number-btn" 
                         onClick={(e) => adjustDiners(e, diners - 1)}
+                        aria-label="decrease diners"
                     >-</button>
                         <input 
                             type='number' 
@@ -183,6 +184,7 @@ const BookingForm = (props) => {
                     <button 
                         className="number-btn"
                         onClick={(e) => adjustDiners(e, diners + 1)}
+                        aria-label="increase diners"
                     >+</button>
                     </div>
                 </div> 
@@ -313,6 +315,7 @@ const BookingForm = (props) => {
                             data-testid="reservation-submit-btn" 
                             className='submit-btn'
                             disabled={!time || hasErrors()}
+                            aria-label="On Click"
                         >
                             Reserve
                         </button>

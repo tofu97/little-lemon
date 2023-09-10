@@ -9,8 +9,8 @@ import { Link } from "react-router-dom"
 const Nav = (props) => {
     return (
         <nav>
-            <span className="home-btn">
-            <img src={home} alt="home" />
+            <span className="home-btn" aria-label="On click go to home page">
+                <img src={home} alt="home" />
             </span>
             <img className="logo" src={logo} alt="Little Lemon Logo" />
             <div className="nav-bar">
@@ -34,11 +34,11 @@ const Nav = (props) => {
                     <Link to="/" className="nav-item">Login</Link>
                 </li>
             </ul>
-            <span className="hamburger hamburger-menu nav-bar-item">
+            <span className="hamburger hamburger-menu nav-bar-item" aria-label="On click show menu">
                 <img src={whiteHamburger} alt="hamburger menu hide" className="hide" />
                 <img src={hamburger} alt="hamburger menu show" className="show" />
             </span>
-            <span className="close hamburger-menu nav-bar-item collapse">
+            <span className="close hamburger-menu nav-bar-item collapse" aria-label="On click close menu">
                 <img src={close} alt="close menu" />
             </span>
             </div>
