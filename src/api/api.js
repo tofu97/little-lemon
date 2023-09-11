@@ -26,7 +26,7 @@ export const fetchAPI = async (date) => {
 }
 
 export const submitAPI = async (formData) => {
-    const data = JSON.stringify(Object.fromEntries(formData));
+    const data = JSON.stringify(formData);
     return new Promise((res, _) => {
         console.log("submitted:", data)
         res(true)

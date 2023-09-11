@@ -289,7 +289,7 @@ const BookingForm = (props) => {
                                 onChange={onChangeCreditCard}
                                 required 
                                 onBlur={() => setCreditCardTouched(true)}
-                                className={creditCardTouched && hasErrors() && errors.creditCard && "error"}
+                                className={(creditCardTouched && hasErrors() && errors.creditCard && "error") || undefined}
                             />
                             <span className="errors">
                                 {creditCardTouched && hasErrors() && (errors.creditCard || null)}
@@ -307,7 +307,7 @@ const BookingForm = (props) => {
                                 onChange={onChangeCvv}
                                 required
                                 onBlur={() => setCvvTouched(true)}
-                                className={cvvTouched && hasErrors() && errors.cvv && "error"}
+                                className={(cvvTouched && hasErrors() && errors.cvv && "error") || undefined}
                             />
                         </div>
                     </div>
