@@ -350,7 +350,7 @@ span.alert {
         cursor: pointer;
     }
 
-    .hamburger {
+    .hamburger-menu {
         cursor: pointer;
     }
     
@@ -377,7 +377,7 @@ span.alert {
 
     .reservation-header h3 {
         grid-column: 1/ span 1;
-        grid-row: 2/ span 1;
+        grid-row: 3/ span 1;
     }
 
     .reservation-header img {
@@ -441,19 +441,24 @@ span.alert {
     }
 
     #time-input {
-        margin-top: 40px;
+        margin-top: 60px;
         grid-row: 10;
     }
 
-    #reservation-hud {
+    #occasion-input {
         margin-top: 60px;
         grid-row: 12;
+    }
+
+    #reservation-hud {
+        margin-top: 90px;
+        grid-row: 14;
         color: #495E57;
     }
 
     #reservation-contact-info {
         margin-top: 70px;
-        grid-row: 15/ span 3;
+        grid-row: 18/ span 3;
         border-top: 1px solid #495E57;
         border-bottom: 1px solid #495E57;
         display: flex;
@@ -478,8 +483,8 @@ span.alert {
     }
     
     #contact-form {
-        grid-row: 18/ span 8;
-        margin-top: 40px;
+        grid-row: 21/ span 8;
+        margin-top: 80px;
     }
 
     .hero {
@@ -487,12 +492,13 @@ span.alert {
     }    
 
     .reservation-hero {
-        background: linear-gradient(180deg, #495E57 80%, white 20%);
+        background-color: #495E57;
+        padding-bottom: 3rem;
     }
 
     .submit-btn {
         width: 100%;
-        margin-top: 40px;
+        margin-top: 60px;
     }
     
     footer {
