@@ -17,7 +17,6 @@ function App() {
   const navigate = useNavigate()
 
   useEffect(() => {
-      console.log("submitSucceeded", submitSucceeded)
       if (submitSucceeded) {
           resetForm()
           navigate("/confirmed")
@@ -33,7 +32,7 @@ function App() {
             type: "update_times", 
           })
         } catch (error) {
-          console.log(error)
+          console.error(error)
         }
       }
       fetchData()
