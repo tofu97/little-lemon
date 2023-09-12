@@ -1,4 +1,4 @@
-import { render, screen, queryByAttribute, fireEvent } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import BookingForm from "./BookingForm";
 
 test('Renders the Booking form instructions', () => {
