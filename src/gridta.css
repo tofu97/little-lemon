@@ -446,7 +446,7 @@ span.alert {
     
     .hero-header-hero .hero-reserve-button {
        grid-column: 1; 
-       grid-row: 6/ span 2;
+       grid-row: 6/ span 3;
        width: 100%;
     }
 
