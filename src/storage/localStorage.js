@@ -12,3 +12,20 @@ export const saveReservation = (reservation) => {
     bookings[key] = reservation
     localStorage.setItem(storageKey, JSON.stringify(bookings))
 }
+
+export const readBookings = () => {
+    const storedBookings = localStorage.getItem(storageKey)
+    return storedBookings || ""
+}
+
+export const deleteBookingByKey = (bookingKey) => {
+    const storedBookings = localStorage.getItem(storageKey)
+    let bookingsObj
+    if (storedBookings === null) {
+        bookingsObj = {}
+    } else {
+        bookingsObj = JSON.parse(storedBookings)
+    }
+    delete bookingsObj[bookingKey]
+    localStorage.setItem(storageKey, JSON.stringify(bookingsObj))
+}

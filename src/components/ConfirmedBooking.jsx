@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react'
 import Footer from './Footer'
-import { storageKey } from '../storage/localStorage'
+import { readBookings, deleteBookingByKey } from '../storage/localStorage'
 
 function ConfirmedBooking(props) {
   const [bookings, setBookings] = useState("")
 
   useEffect(() => {
-    const storedBookings = localStorage.getItem(storageKey)
+    const storedBookings = readBookings()
     
     if (storedBookings === null) {
       console.error("Error retrieving from local storage")
@@ -48,15 +48,7 @@ function ConfirmedBooking(props) {
 
 
   const deleteBooking = (bookingKey) => (_) => {
-    const storedBookings = localStorage.getItem(storageKey)
-    let bookingsObj
-    if (storedBookings === null) {
-        bookingsObj = {}
-    } else {
-        bookingsObj = JSON.parse(storedBookings)
-    }
-    delete bookingsObj[bookingKey]
-    localStorage.setItem(storageKey, JSON.stringify(bookingsObj))
+    deleteBookingByKey(bookingKey)
     setBookings("")
   }
 
