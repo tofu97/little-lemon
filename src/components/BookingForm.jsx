@@ -55,13 +55,11 @@ const BookingForm = (props) => {
     }, [availableTimes, time])
 
     const onChangeDate = (e) => {
-        console.log(e.target.value)
         const newDate = e.target.value
         setDate(newDate)
     }
 
     const onChangeDiners = (e) => {
-        console.log(e.target.value)
         setDiners(e.target.value)
     }
     
@@ -72,12 +70,10 @@ const BookingForm = (props) => {
     }
     
     const onChangeTime = (e) => {
-        console.log(e.target.value)
         setTime(e.target.value)
     }
     
     const onChangeOccasion = (e) => {
-        console.log(e.target.value)
         setOccasion(e.target.value)
     }
 
@@ -134,7 +130,6 @@ const BookingForm = (props) => {
             creditCard,
             cvv,
         }
-        console.log(formData)
         submitForm(formData)
     }
 

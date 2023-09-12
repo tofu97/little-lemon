@@ -5,7 +5,6 @@ import { explodeDate, months } from "../helpers/date"
 const Calendar = ({date, setDate}) => {
     let [year, monthNumber, day] = explodeDate(date)
     let monthIdx = monthNumber - 1
-    console.log("Date: ", year, monthIdx, day)
     const month = months[monthIdx]
     const dateObj = new Date(year, monthIdx, day)
     const dayOfMonth = dateObj.getDate()
@@ -23,7 +22,6 @@ const Calendar = ({date, setDate}) => {
         const dateStr = [year, monthIdx + 1, 1].map((v) => {
             return String(v).padStart(2, '0')
         }).join("-")
-        console.log(dateStr)
         setDate(dateStr)
     }
     
@@ -38,7 +36,6 @@ const Calendar = ({date, setDate}) => {
         const dateStr = [year, monthIdx + 1, 1].map((v) => {
             return String(v).padStart(2, '0')
         }).join("-")
-        console.log(dateStr)
         setDate(dateStr)
     }
 
@@ -66,7 +63,6 @@ const Calendar = ({date, setDate}) => {
         const dateStr = [year, monthIdx + 1, day].map((v) => {
             return String(v).padStart(2, '0')
         }).join("-")
-        console.log(dateStr)
         setDate(dateStr)
     }
 
